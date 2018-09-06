@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+var font=0,load;
+function start()
+{
+load=window.setInterval("incr()",100);
+}
+function incr()
+{
+font=font+1;
+d.innerHTML="text-growing:"+font+"pt";
+d.style.fontSize=font+"pt";
+if(font>50)
+{
+window.clearTimeout(load);
+load=window.setInterval("decr()",100);
+}
+d.style.color="red";
+}
+
+function decr()
+{
+font=font-1;
+d.innerHTML="text-shrinking:"+font+"pt";
+d.style.fontSize=font+"pt";
+if(font==5)
+{
+window.clearTimeout(load);
+load=window.setInterval("incr()",100);
+}
+d.style.color="blue";
+}
+</script>
+</head>
+<body style=background-color:aqua; onload="start()">
+<center>
+<p style="margin-top:250px" id="d"></p>
+</center>
+</body>
+</html>
